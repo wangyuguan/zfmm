@@ -1,0 +1,8 @@
+@function [pot,grad] = zh2devaldirect(zk,nt,ztarg,ns,zsrc,charge,dipstr,dipvec,ifcharge,ifdipole,ifpgh)
+
+pot = complex(zeros(nt,1));
+grad = complex(zeros(2,nt));
+
+# FORTRAN zh2devaldirect(dcomplex[1] zk, int[1] nt, dcomplex[2,nt] ztarg, int[1] ns, dcomplex[2,ns] zsrc, dcomplex[ns] charge, dcomplex[ns] dipstr, dcomplex[2,ns] dipvec, int[1] ifcharge, inout dcomplex[nt] pot, inout dcomplex[2,nt] grad, int[1] ifdipole, int[1] ifpgh);
+
+end

@@ -1,0 +1,9 @@
+@function [pot,grad] = zlfmm2d(eps,ns,zsrc,ifcharge,charge,ifdipole,dipstr,dipvec,nt,ztarg,ifpgh,isep)
+
+pot = complex(zeros(nt,1));
+grad = complex(zeros(2,nt));
+ifprint = 0;
+
+# FORTRAN zlfmm2d(double[1] eps, int[1] ns, dcomplex[2,ns] zsrc, int[1] ifcharge, dcomplex[ns] charge, int[1] ifdipole, dcomplex[ns] dipstr, dcomplex[2,ns] dipvec, inout dcomplex[nt] pot,  inout dcomplex[2,nt] grad, int[1] nt, dcomplex[2,nt] ztarg, int[1] ifpgh, int[1] isep,  int[1] ifprint);
+
+end

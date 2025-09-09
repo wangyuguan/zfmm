@@ -1,0 +1,8 @@
+@function [pot,grad] = zh3devaldirect(zk,nt,ztarg,ns,zsrc,charge,dipstr,dipvec,ifcharge,ifdipole,ifpgh)
+
+pot = complex(zeros(nt,1));
+grad = complex(zeros(3,nt));
+
+# FORTRAN zh3devaldirect(dcomplex[1] zk, int[1] nt, dcomplex[3,nt] ztarg, int[1] ns, dcomplex[3,ns] zsrc, dcomplex[ns] charge, dcomplex[ns] dipstr, dcomplex[3,ns] dipvec, int[1] ifcharge, inout dcomplex[nt] pot, inout dcomplex[3,nt] grad, int[1] ifdipole, int[1] ifpgh);
+
+end

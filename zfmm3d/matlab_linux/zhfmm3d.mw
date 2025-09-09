@@ -1,0 +1,9 @@
+@function [pot,grad] = zhfmm3d(eps,zk,ns,zsrc,ifcharge,charge,ifdipole,dipstr,dipvec,nt,ztarg,isep,ifpgh)
+
+pot = complex(zeros(nt,1));
+grad = complex(zeros(3,nt));
+ifprint = 0;
+
+# FORTRAN zhfmm3d(double[1] eps, dcomplex[1] zk, int[1] ns, dcomplex[3,ns] zsrc, int[1] ifcharge, dcomplex[ns] charge, int[1] ifdipole, dcomplex[ns] dipstr, dcomplex[3,ns] dipvec, inout dcomplex[nt] pot,  inout dcomplex[3,nt] grad, int[1] nt, dcomplex[3,nt] ztarg, int[1] ifpgh, int[1] isep, int[1] ifprint);
+
+end

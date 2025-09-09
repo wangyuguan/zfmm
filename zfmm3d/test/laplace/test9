@@ -1,0 +1,22 @@
+  rm test9.o 
+  rm int2 
+  gfortran -fopenmp -std=legacy -c -w test9.f 
+  gfortran -fopenmp -std=legacy -O3 -w -o int2 test9.o   \
+    ../../src/common/prini.f\
+    ../../src/common/legeexps.f\
+    ../../src/common/corrand.f\
+    ../../src/common/pts_tree3d.f\
+    ../../src/common/tree_routs3d.f\
+    ../../src/common/cumsum.f\
+    ../../src/common/fmmcommon.f\
+    ../../src/common/ztoolbox.f\
+    ../../src/common/yrecursion.f \
+    ../../src/common/dfft.f\
+    ../../src/common/zrotate.f \
+    ../../src/laplace/lndiv_fast.f\
+    ../../src/laplace/l3dterms.f\
+    ../../src/laplace/zlfmm3d.f\
+    ../../src/laplace/zl3dtrans.f\
+
+  ./int2 
+

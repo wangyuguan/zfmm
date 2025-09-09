@@ -1,0 +1,18 @@
+  rm test5.o
+  rm int2 
+  gfortran -fopenmp -std=legacy -c  test5.f  
+  gfortran -fopenmp -std=legacy -o int2 test5.o \
+  ../../src/common/prini.f\
+  ../../src/common/corrand.f\
+  ../../src/common/cumsum.f\
+  ../../src/common/fmmcommon2d.f\
+  ../../src/common/pts_tree2d.f\
+  ../../src/common/toolbox.f\
+  ../../src/common/tree_routs2d.f\
+  ../../src/laplace/l2dterms.f\
+  ../../src/laplace/lndiv2d.f\
+  ../../src/laplace/zl2dtrans.f\
+  ../../src/laplace/zlfmm2d.f\
+
+
+  ./int2

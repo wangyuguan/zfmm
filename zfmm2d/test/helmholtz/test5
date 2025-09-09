@@ -1,0 +1,21 @@
+  rm test5.o
+  rm int2 
+  gfortran  -std=legacy -c  test5.f  
+  gfortran  -std=legacy -o int2 test5.o \
+  ../../src/common/prini.f\
+  ../../src/common/corrand.f\
+  ../../src/common/cumsum.f\
+  ../../src/common/fmmcommon2d.f\
+  ../../src/common/pts_tree2d.f\
+  ../../src/common/toolbox.f\
+  ../../src/common/tree_routs2d.f\
+  ../../src/helmholtz/cdjseval2d.f\
+  ../../src/helmholtz/h2dcommon.f\
+	../../src/helmholtz/h2dterms.f\
+  ../../src/helmholtz/hank101.f\
+  ../../src/helmholtz/hank103.f\
+	../../src/helmholtz/hndiv2d.f\
+	../../src/helmholtz/next235.f\
+	../../src/helmholtz/zh2dtrans.f\
+	../../src/helmholtz/zhfmm2d.f
+  ./int2
