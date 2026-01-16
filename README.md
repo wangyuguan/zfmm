@@ -120,3 +120,78 @@ where
 
 - **grad** *(2 × nt complex array)*  
   Gradient of the potential at target points *(only valid if `ifpgh = 2`)*.
+
+
+
+### zhfmm3d — 3D complex Helmholtz FMM
+
+This routine evaluates the 3D Helmholtz potential with optional dipole contributions using a fast multipole method with complex coordinates.
+
+For target points x<sub>i</sub>, the computed field is
+
+![](https://latex.codecogs.com/svg.image?u(x_i)=\sum_{j=1}^{n_s}q_j\,\frac{e^{i\,z_kR(x_i,y_j)}}{4\pi\,R(x_i,y_j)}-\sum_{j=1}^{n_s}d_j\,\left\langle v_j,\nabla_y\frac{e^{i\,z_kR(x_i,y_j)}}{4\pi\,R(x_i,y_j)}\right\rangle)
+
+where
+
+![](https://latex.codecogs.com/svg.image?R(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+(x_3-y_3)^2}.)
+---
+
+#### MATLAB call
+
+```matlab
+[pot, grad] = zhfmm3d(eps, zk, ns, zsrc, ifcharge, charge, ...
+                      ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
+```
+
+#### Input arguments
+
+- **eps** *(real scalar)*  
+  Requested FMM accuracy.
+
+- **zk** *(complex scalar)*  
+  Helmholtz wavenumber.
+
+- **ns** *(integer)*  
+  Number of source points.
+
+- **zsrc** *(3 × ns complex array)*  
+  Source locations. Complex coordinates are supported.
+
+- **ifcharge** *(0 or 1)*  
+  Flag indicating whether charge sources are included.
+
+- **charge** *(ns complex array)*  
+  Charge strengths.
+
+- **ifdipole** *(0 or 1)*  
+  Flag indicating whether dipole sources are included.
+
+- **dipstr** *(ns complex array)*  
+  Dipole strengths.
+
+- **dipvec** *(3 × ns complex array)*  
+  Dipole orientation vectors.
+
+- **nt** *(integer)*  
+  Number of target points.
+
+- **ztarg** *(3 × nt complex array)*  
+  Target locations. Complex coordinates are supported.
+
+- **ifpgh** *(integer)*  
+  Output selector:  
+  - `1` — compute potential only  
+  - `2` — compute potential and gradient
+
+- **isep** *(integer)*  
+  Well-separation parameter used in FMM tree construction.
+
+---
+
+## Output arguments
+
+- **pot** *(nt complex array)*  
+  Potential evaluated at target points.
+
+- **grad** *(3 × nt complex array)*  
+  Gradient of the potential at target points *(only valid if `ifpgh = 2`)*.
