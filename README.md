@@ -6,4 +6,4 @@ This repository contains the research code for the paper:
 
 **Paper authors:** Tristan Goodwill, Leslie Greengard, Jeremy Hoskins, Manas Rachh and Yuguan Wang 
 
-**Third party:** [https://github.com/zgimbutas/mwrap](mrap)
+**Third party:** [mrap](https://github.com/zgimbutas/mwrap)
