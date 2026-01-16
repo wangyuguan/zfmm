@@ -112,9 +112,9 @@ where
 - **isep** *(integer)*  
   Well-separation parameter used in FMM tree construction.
 
----
 
-## Output arguments
+
+#### Output arguments
 
 - **pot** *(nt complex array)*  
   Potential evaluated at target points.
@@ -188,9 +188,8 @@ where
 - **isep** *(integer)*  
   Well-separation parameter used in FMM tree construction.
 
----
 
-## Output arguments
+#### Output arguments
 
 - **pot** *(nt complex array)*  
   Potential evaluated at target points.
