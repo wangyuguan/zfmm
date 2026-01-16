@@ -72,10 +72,83 @@ where
 #### Input arguments
 
 - **eps** *(real scalar)*  
-  Requested FMM accuracy.
+  Requested FMM accuracy (only guarantee real locations).
 
 - **zk** *(complex scalar)*  
   Helmholtz wavenumber.
+
+- **ns** *(integer)*  
+  Number of source points.
+
+- **zsrc** *(2 × ns complex array)*  
+  Source locations. Complex coordinates are supported.
+
+- **ifcharge** *(0 or 1)*  
+  Flag indicating whether charge sources are included.
+
+- **charge** *(ns complex array)*  
+  Charge strengths.
+
+- **ifdipole** *(0 or 1)*  
+  Flag indicating whether dipole sources are included.
+
+- **dipstr** *(ns complex array)*  
+  Dipole strengths.
+
+- **dipvec** *(2 × ns complex array)*  
+  Dipole orientation vectors.
+
+- **nt** *(integer)*  
+  Number of target points.
+
+- **ztarg** *(2 × nt complex array)*  
+  Target locations. Complex coordinates are supported.
+
+- **ifpgh** *(integer)*  
+  Output selector:  
+  - `1` — compute potential only  
+  - `2` — compute potential and gradient
+
+- **isep** *(integer)*  
+  Well-separation parameter used in FMM tree construction.
+
+
+
+#### Output arguments
+
+- **pot** *(nt complex array)*  
+  Potential evaluated at target points.
+
+- **grad** *(2 × nt complex array)*  
+  Gradient of the potential at target points *(only valid if `ifpgh = 2`)*.
+
+
+
+### zlfmm2d — 2D complex Laplace FMM
+
+This routine evaluates the 2D Laplace potential with optional dipole contributions using a fast multipole method with complex coordinates.
+
+For target points x<sub>i</sub>, the computed field is
+
+![](https://latex.codecogs.com/svg.image?u(x_i)%3D%5Csum_%7Bj%3D1%7D%5E%7Bn_s%7D%20q_j%20%5Cfrac%7B%5Clog%20R(x_i%2Cy_j)%7D%7B2%5Cpi%7D%20-%20%5Csum_%7Bj%3D1%7D%5E%7Bn_s%7D%20d_j%20%5Cfrac%7B%5Clangle%20v_j%2C%5Cnabla_y%5Clog%20R(x_i%2Cy_j)%5Crangle%7D%7B2%5Cpi%7D)
+
+where
+
+![](https://latex.codecogs.com/svg.image?R(x%2Cy)%3D%5Csqrt%7B(x_1-y_1)%5E2%2B(x_2-y_2)%5E2%7D.)
+
+---
+
+#### MATLAB call
+
+```matlab
+[pot, grad] = zhfmm2d(eps, ns, zsrc, ifcharge, charge, ...
+                      ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
+```
+
+#### Input arguments
+
+- **eps** *(real scalar)*  
+  Requested FMM accuracy (only guarantee real locations).
 
 - **ns** *(integer)*  
   Number of source points.
@@ -148,7 +221,7 @@ where
 #### Input arguments
 
 - **eps** *(real scalar)*  
-  Requested FMM accuracy.
+  Requested FMM accuracy (only guarantee real locations).
 
 - **zk** *(complex scalar)*  
   Helmholtz wavenumber.
