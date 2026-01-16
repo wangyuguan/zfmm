@@ -43,6 +43,7 @@ Edit `runmatlab.sh` to point to your local MATLAB `mex` and your `gfortran` runt
 ```bash
 MATLAB_BIN="/usr/local/MATLAB/R2023a/bin/mex"
 GFORTRAN_LIB_PATH="/usr/lib/gcc/x86_64-linux-gnu/"
+```
 
 
 ## Usage
