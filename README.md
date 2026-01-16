@@ -53,13 +53,22 @@ GFORTRAN_LIB_PATH="/usr/lib/gcc/x86_64-linux-gnu/"
 This routine evaluates the 2D Helmholtz potential with optional dipole contributions using a fast multipole method with complex coordinates.
 
 For target points `x_i`, the computed field is
-
-    u(x_i) = sum_j charge(j) * (i/4) * H0( zk * R(x_i, y_j) )
-           - sum_j dipstr(j) * (i/4) * < dipvec(:,j), grad_y H0( zk * R(x_i, y_j) ) >
+$$
+u(x_i)
+=
+\sum_{j=1}^{n_s} q_j \, \frac{i}{4} \, H_0\!\left( z_k \, R(x_i, y_j) \right)
+\;-\;
+\sum_{j=1}^{n_s} d_j \, \frac{i}{4}
+\left\langle v_j,\,
+\nabla_y H_0\!\left( z_k \, R(x_i, y_j) \right)
+\right\rangle .
+$$
 
 where
 
-    R(x,y) = sqrt( (x1 - y1)^2 + (x2 - y2)^2 ).
+$$
+R(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}.
+$$
 
 ---
 
