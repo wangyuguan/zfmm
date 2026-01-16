@@ -70,7 +70,7 @@ where
                       ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
 ```
 
-## Input arguments
+#### Input arguments
 
 - **eps** *(real scalar)*  
   Requested FMM accuracy.
