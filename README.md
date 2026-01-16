@@ -52,24 +52,13 @@ GFORTRAN_LIB_PATH="/usr/lib/gcc/x86_64-linux-gnu/"
 
 This routine evaluates the 2D Helmholtz potential with optional dipole contributions using a fast multipole method with complex coordinates.
 
-For target points `x_i`, the computed field is
-$$
-u(x_i)
-=
-\sum_{j=1}^{n_s} q_j \, \frac{i}{4} \, H_0\!\left( z_k \, R(x_i, y_j) \right)
-\;-\;
-\sum_{j=1}^{n_s} d_j \, \frac{i}{4}
-\left\langle v_j,\,
-\nabla_y H_0\!\left( z_k \, R(x_i, y_j) \right)
-\right\rangle .
-$$
+For target points \(x_i\), the computed field is
+
+![](https://latex.codecogs.com/svg.image?u(x_i)%20=%20\sum_{j=1}^{n_s}q_j\frac{i}{4}H_0^{(1)}\!\left(z_kR(x_i,y_j)\right)\;-\;\sum_{j=1}^{n_s}d_j\frac{i}{4}\left\langle%20v_j,\nabla_yH_0^{(1)}\!\left(z_kR(x_i,y_j)\right)\right\rangle.)
 
 where
 
-$$
-R(x,y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}.
-$$
-
+![](https://latex.codecogs.com/svg.image?R(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}.)
 ---
 
 #### MATLAB call
