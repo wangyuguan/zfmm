@@ -59,6 +59,7 @@ For target points x<sub>i</sub>, the computed field is
 where
 
 ![](https://latex.codecogs.com/svg.image?R(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2}.)
+
 ---
 
 #### MATLAB call
@@ -129,11 +130,12 @@ This routine evaluates the 3D Helmholtz potential with optional dipole contribut
 
 For target points x<sub>i</sub>, the computed field is
 
-![](https://latex.codecogs.com/svg.image?u(x_i)=\sum_{j=1}^{n_s}q_j\,\frac{e^{i\,z_kR(x_i,y_j)}}{4\pi\,R(x_i,y_j)}-\sum_{j=1}^{n_s}d_j\,\left\langle v_j,\nabla_y\frac{e^{i\,z_kR(x_i,y_j)}}{4\pi\,R(x_i,y_j)}\right\rangle)
+![](https://latex.codecogs.com/svg.image?u(x_i)%3D%5Csum_%7Bj%3D1%7D%5E%7Bn_s%7D%20q_j%20%5Cfrac%7Be%5E%7Bi%5C,z_k%20R(x_i,y_j)%7D%7D%7B4%5Cpi%20R(x_i,y_j)%7D%20-%20%5Csum_%7Bj%3D1%7D%5E%7Bn_s%7D%20d_j%20%5Cleft%5Clangle%20v_j%2C%5Cnabla_y%5Cfrac%7Be%5E%7Bi%5C,z_k%20R(x_i,y_j)%7D%7D%7B4%5Cpi%20R(x_i,y_j)%7D%20%5Cright%5Crangle)
 
 where
 
-![](https://latex.codecogs.com/svg.image?R(x,y)=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+(x_3-y_3)^2}.)
+![](https://latex.codecogs.com/svg.image?R(x,y)%3D%5Csqrt%7B(x_1-y_1)%5E2%2B(x_2-y_2)%5E2%2B(x_3-y_3)%5E2%7D)
+
 ---
 
 #### MATLAB call
