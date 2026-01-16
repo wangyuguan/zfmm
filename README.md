@@ -70,44 +70,40 @@ where
                       ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
 ```
 
-#### Input arguments
-
+Input arguments
 	•	eps (real scalar)
 Requested FMM accuracy.
-
 	•	zk (complex scalar)
 Helmholtz wavenumber.
-
 	•	ns (integer)
 Number of source points.
-
 	•	zsrc (2 × ns complex array)
 Source locations. Complex coordinates are supported.
-
 	•	ifcharge (0 or 1)
 Flag indicating whether charge sources are included.
-
 	•	charge (ns complex array)
 Charge strengths.
-
 	•	ifdipole (0 or 1)
 Flag indicating whether dipole sources are included.
-
 	•	dipstr (ns complex array)
 Dipole strengths.
-
 	•	dipvec (2 × ns complex array)
 Dipole orientation vectors.
-
 	•	nt (integer)
 Number of target points.
-
 	•	ztarg (2 × nt complex array)
 Target locations. Complex coordinates are supported.
-
 	•	ifpgh (integer)
 Output selector:
 	•	1 : compute potential only
 	•	2 : compute potential and gradient
 	•	isep (integer)
 Well-separation parameter used in FMM tree construction.
+
+⸻
+
+Output arguments
+	•	pot (nt complex array)
+Potential evaluated at target points.
+	•	grad (2 × nt complex array)
+Gradient of the potential at target points (only valid if ifpgh = 2).
