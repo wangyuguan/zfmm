@@ -7,3 +7,7 @@ This repository contains the research code for the paper:
 **Paper authors:** Tristan Goodwill, Leslie Greengard, Jeremy Hoskins, Manas Rachh and Yuguan Wang 
 
 **Third party:** [mrap](https://github.com/zgimbutas/mwrap)
+
+**Usage:
+
+To compile the Fortran code into Matlab function, need to execute runmatlab.sh under /matlab_linux or /matlab_mac folder. 
