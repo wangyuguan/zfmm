@@ -68,8 +68,9 @@ where
 ```matlab
 [pot, grad] = zhfmm2d(eps, zk, ns, zsrc, ifcharge, charge, ...
                       ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
+```
 
-### Input arguments
+#### Input arguments
 
 	•	eps (real scalar)
 Requested FMM accuracy.
