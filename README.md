@@ -1,13 +1,100 @@
-# Laplace and Helmholtz fast multipole method with complex coordinates 
+# Laplace and Helmholtz Fast Multipole Method with Complex Coordinates
 
-This repository contains the research code for the paper:  
+This repository contains research code for the paper:
 
-**"Fast Multipole Method with Complex Coordinates"**  [arXiv:2509.05458](https://arxiv.org/abs/2509.05458)
+**Fast Multipole Method with Complex Coordinates**  
+arXiv:2509.05458: https://arxiv.org/abs/2509.05458
 
-**Paper authors:** Tristan Goodwill, Leslie Greengard, Jeremy Hoskins, Manas Rachh and Yuguan Wang 
+**Authors:** Tristan Goodwill, Leslie Greengard, Jeremy Hoskins, Manas Rachh, and Yuguan Wang
 
-**Third party:** [mrap](https://github.com/zgimbutas/mwrap)
+**Third-party dependency:** mwrap  
+https://github.com/zgimbutas/mwrap
 
-**Usage:
+---
 
-To compile the Fortran code into Matlab function, need to execute runmatlab.sh under /matlab_linux or /matlab_mac folder. 
+## Overview
+
+This package provides Fast Multipole Method (FMM) implementations for Laplace and Helmholtz kernels in 2D and 3D, including **complex-coordinate** variants where source/target points may be complex-valued (e.g., contour deformations and complex shifts).
+
+### Available MATLAB-callable functions
+
+1. `zhfmm2d` — 2D Helmholtz kernel (complex coordinates)
+2. `zlfmm2d` — 2D Laplace kernel (complex coordinates)
+3. `zhfmm3d` — 3D Helmholtz kernel (complex coordinates)
+4. `zlfmm3d` — 3D Laplace kernel (complex coordinates)
+
+---
+
+## Build (MATLAB MEX)
+
+To build the Fortran code into MATLAB MEX functions, run:
+
+- `matlab_linux/runmatlab.sh` on Linux
+- `matlab_mac/runmatlab.sh` on macOS
+
+It is recommended to place `mwrap` at the same directory level as this repository so that the relative path below works:
+
+../../mwrap/mwrap
+
+### Configure paths
+
+Edit `runmatlab.sh` to point to your local MATLAB `mex` and your `gfortran` runtime library path, for example:
+
+```bash
+MATLAB_BIN="/usr/local/MATLAB/R2023a/bin/mex"
+GFORTRAN_LIB_PATH="/usr/lib/gcc/x86_64-linux-gnu/"
+
+
+## Usage
+
+### zhfmm2d — 2D complex Helmholtz FMM
+
+This routine evaluates the 2D Helmholtz potential with optional dipole contributions using a fast multipole method with complex coordinates.
+
+For target points `x_i`, the computed field is
+
+    u(x_i) = sum_j charge(j) * (i/4) * H0( zk * R(x_i, y_j) )
+           - sum_j dipstr(j) * (i/4) * < dipvec(:,j), grad_y H0( zk * R(x_i, y_j) ) >
+
+where
+
+    R(x,y) = sqrt( (x1 - y1)^2 + (x2 - y2)^2 ).
+
+---
+
+#### MATLAB call
+
+```matlab
+[pot, grad] = zhfmm2d(eps, zk, ns, zsrc, ifcharge, charge, ...
+                      ifdipole, dipstr, dipvec, nt, ztarg, ifpgh, isep);
+
+### Input arguments
+
+	•	eps (real scalar)
+Requested FMM accuracy.
+	•	zk (complex scalar)
+Helmholtz wavenumber.
+	•	ns (integer)
+Number of source points.
+	•	zsrc (2 × ns complex array)
+Source locations. Complex coordinates are supported.
+	•	ifcharge (0 or 1)
+Flag indicating whether charge sources are included.
+	•	charge (ns complex array)
+Charge strengths.
+	•	ifdipole (0 or 1)
+Flag indicating whether dipole sources are included.
+	•	dipstr (ns complex array)
+Dipole strengths.
+	•	dipvec (2 × ns complex array)
+Dipole orientation vectors.
+	•	nt (integer)
+Number of target points.
+	•	ztarg (2 × nt complex array)
+Target locations. Complex coordinates are supported.
+	•	ifpgh (integer)
+Output selector:
+	•	1 : compute potential only
+	•	2 : compute potential and gradient
+	•	isep (integer)
+Well-separation parameter used in FMM tree construction.
